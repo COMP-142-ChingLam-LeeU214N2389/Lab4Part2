@@ -1,20 +1,72 @@
-// Lab4Part2.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
+// Lab4Part2.cpp
+/** \file Lab4Part2.cpp
+* \brief matrix program
+* \author Ching Lam Lee
+* date 5.6.2022
+*/
 
 #include <iostream>
+#include <cstdlib>
+using namespace std;
 
+//global constants
+const int MAX_COL = 120;
+
+//function prototype
+double sumOfRow(const double mat[][MAX_COL], const int row, const int maxRow); 
+double sumOfCol(const double mat[][MAX_COL], const int column, const int maxRow);
+void fillWithRandomNum(double mat[][MAX_COL], const int maxRow);
+void printMatrix(const double mat[][MAX_COL], const int maxRow);
+
+//cm todo
 int main()
 {
-    std::cout << "Hello World!\n";
+	const int MAX_ROW = 5;
+	double matrix[MAX_ROW][MAX_COL];
+	
+	int choice;
+	do {
+		cout << "";
+		cout << "\n1) Print Matrix";
+		cout << "\n2) Sum of column";
+		cout << "\n3) Sum of a row";
+		cout << "\n4) Quit";
+		cout << "\nEnter your Options: ";
+		cin >> choice;
+		if (1 == choice) {
+			printMatrix(matrix,MAX_ROW);
+		}
+	} while (5 != choice);
+	
+	return 0;
 }
 
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
+/**
+* print the matrix generated from the function fillWithRandomMum
+* @param mat The matrix generated from the function fillWithRandomNum
+* @param maxRow row of the matrix
+*/
+void fillWithRandomNum(double mat[][MAX_COL], const int maxRow) {
+	for (int i = 0; i < maxRow; i++) {
+		for (int j = 0; j < MAX_COL; j++) {
+			mat[i][j]=1;	//todo
+		}
+	}
+}
 
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
+/**
+* print the matrix generated from the function fillWithRandomMum
+* @param mat The matrix generated from the function fillWithRandomNum
+* @param maxRow row of the matrix 
+*/
+void printMatrix(const double mat[][MAX_COL], const int maxRow) {
+	for (int i = 0; i < maxRow; i++) {
+		for (int j = 0; j < MAX_COL; j++) {
+			cout << i<<'\t';
+		}
+		cout << endl;
+	}
+}
+
+
+
